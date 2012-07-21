@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, CallRecordAppActivity!</string>
+    <string name="app_name">CallRecordApp</string>
+    <string name="msg">Push if you want start or stop the record service</string>
+	<string name="start"> Start service </string>
+	<string name="stop"> Stop service </string>
+	<string name="phoneMsg"> The incoming phone number is </string>
+	<string name="phoneState"> The phone state is </string>
+</resources>

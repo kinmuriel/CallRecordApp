@@ -1,0 +1,39 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 18
+/pruebas/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/pruebas/!svn/ver/7/trunk/Android/CallRecordApp
+END
+proguard-project.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/pruebas/!svn/ver/7/trunk/Android/CallRecordApp/proguard-project.txt
+END
+AndroidManifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/pruebas/!svn/ver/7/trunk/Android/CallRecordApp/AndroidManifest.xml
+END
+project.properties
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/pruebas/!svn/ver/7/trunk/Android/CallRecordApp/project.properties
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/pruebas/!svn/ver/7/trunk/Android/CallRecordApp/.project
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/pruebas/!svn/ver/7/trunk/Android/CallRecordApp/.classpath
+END
