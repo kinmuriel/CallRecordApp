@@ -27,7 +27,19 @@ public class ReceivedCallBroadcastReceiver extends BroadcastReceiver{
 		if (!CallRecordStaticItems.isRunning())
 			return;
 		
-		// TODO Auto-generated method stub
+		/*This is the schema that the service would follow.
+		
+		if (isIncomingCall()){
+			doIncomingCall();
+		}else{
+			doOutComingCall();
+		}
+		
+		 */
+		
+		// Next is sample code to start and stop a callRecord with an incoming call.
+		// This code FAILS with and OUTCOMING call
+		
 		Bundle extras = arg1.getExtras(); //I don't really know what is the objective of this line.
 		
 		if(extras != null){

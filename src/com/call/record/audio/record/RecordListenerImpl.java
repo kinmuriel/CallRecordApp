@@ -13,7 +13,7 @@ import android.util.Log;
 
 public class RecordListenerImpl implements RecordListenerInterface{
 	
-	private final static int AUDIOSOURCE = AudioSource.VOICE_DOWNLINK;
+	private final static int AUDIOSOURCE = AudioSource.VOICE_DOWNLINK; // With Voice_DOWNLINK we get audio from a call
 	private final static int SAMPLERATEHZ = 8000;
 	private final static int CHANNELCONFIG = AudioFormat.CHANNEL_IN_MONO;
 	private final static int AUDIOFORMAT = AudioFormat.ENCODING_PCM_16BIT;
@@ -28,7 +28,8 @@ public class RecordListenerImpl implements RecordListenerInterface{
 		// TODO Auto-generated constructor stub
 		audioRecord = new AudioRecord(AUDIOSOURCE, SAMPLERATEHZ, CHANNELCONFIG,
 				AUDIOFORMAT, BUFFERSIZE);
-		//audioRecord = findAudioRecord();
+		//audioRecord = findAudioRecord();  see notes.txt to get code that creates an
+			// audioRecord instance available for all devices.
 		isRecording = false;
 	}
 	
