@@ -1,7 +1,6 @@
 package com.call.record.service;
 
 import com.call.record.activity.CallRecordStaticItems;
-import com.call.record.activity.R;
 import com.call.record.audio.record.RecordListenerImpl;
 import com.call.record.audio.record.RecordListenerInterface;
 

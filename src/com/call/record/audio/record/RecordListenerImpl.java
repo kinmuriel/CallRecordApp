@@ -1,7 +1,6 @@
 package com.call.record.audio.record;
 
 import java.io.DataOutputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
@@ -60,6 +59,9 @@ public class RecordListenerImpl implements RecordListenerInterface{
 			return fileName;
 		}
 		
+		/**
+		 * This method is responsible for get bytes from AudioRecord and write them in persisten storage.
+		 */
 		public void run() {
 			// TODO Auto-generated method stub
 			byte[] buffer = new byte[BUFFERLENGTH];
@@ -78,8 +80,10 @@ public class RecordListenerImpl implements RecordListenerInterface{
 						dos.write(buffer, 0, read);
 					}
 				}
-				dos.flush();
+				dos.flush();	// Before exiting from method, we flush and close dataoutputstream and release audiorecord instance.
 				dos.close();
+				audioRecord.release();
+				audioRecord = null;
 				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

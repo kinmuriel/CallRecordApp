@@ -1,7 +1,5 @@
 package com.call.record.activity;
 
-import com.call.record.audio.record.RecordListenerImpl;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
