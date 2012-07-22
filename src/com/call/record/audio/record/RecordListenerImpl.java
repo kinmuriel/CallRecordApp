@@ -23,7 +23,7 @@ public class RecordListenerImpl implements RecordListenerInterface{
 	
 	private AudioRecord audioRecord;
 	private boolean isRecording;
-	private String name = "";
+	private String name;
 	
 	public RecordListenerImpl() {
 		// TODO Auto-generated constructor stub
@@ -54,7 +54,7 @@ public class RecordListenerImpl implements RecordListenerInterface{
 		    + "_" + (cal1.get(Calendar.YEAR) + 1) + "_" + cal1.get(Calendar.HOUR)
 		    + "_" + cal1.get(Calendar.MINUTE);
 
-			if (!name.equals("")){
+			if (name != null){
 				fileName += "_" + name;
 			}
 			return fileName;
