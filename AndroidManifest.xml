@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -25,6 +26,12 @@
         <receiver android:name="com.call.record.service.ReceivedCallBroadcastReceiver">
             <intent-filter >
                 <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        
+        <receiver android:name="com.call.record.service.EmitedCallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
             </intent-filter>
         </receiver>
     </application>

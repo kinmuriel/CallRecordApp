@@ -20,7 +20,7 @@ public class ReceivedCallBroadcastReceiver extends BroadcastReceiver{
 	
 	private static final String PHONESTATE = "The phone state is ";
 	private static final String PHONENUMBER = "The incoming phone number is ";
-
+	
 	@Override
 	public void onReceive(Context arg0, Intent arg1) {
 		
@@ -45,20 +45,25 @@ public class ReceivedCallBroadcastReceiver extends BroadcastReceiver{
 		if(extras != null){
 			
 			String state = extras.getString(TelephonyManager.EXTRA_STATE); //Reading phone state.
-			Log.d("PHONE STATE---------->", PHONESTATE + state);
+			Log.d("INCOMING PHONE STATE---------->", PHONESTATE + state);
 			
-			if(state.equals(TelephonyManager.EXTRA_STATE_OFFHOOK)){
+			if(state.equals(TelephonyManager.EXTRA_STATE_RINGING)){
+				CallRecordStaticItems.setIncomingCall(true);
+			}else if(state.equals(TelephonyManager.EXTRA_STATE_OFFHOOK) && 
+					CallRecordStaticItems.isIncomingCall()){
 				
-				//When a phone is received and call it's offhooked, application gets phone number and create
-				//Recordlistener with it.
+				//When a phone is received(isIncomingCall) and call it's offhooked, 
+				//application gets phone number and creates Recordlistener with it.
 				String phoneNumber = extras.getString(TelephonyManager.EXTRA_INCOMING_NUMBER);
-				Log.d("PHONE NUMBER ----------->", PHONENUMBER + phoneNumber);
+				Log.d("INCOMING PHONE NUMBER ----------->", PHONENUMBER + phoneNumber);
 				
 				RecordListenerInterface rli = new RecordListenerImpl(phoneNumber);
 				CallRecordStaticItems.setRecordListener(rli);
 				rli.start();
 				
 			}else if (state.equals(TelephonyManager.EXTRA_STATE_IDLE)){
+				
+				CallRecordStaticItems.setIncomingCall(false);
 				
 				// if the phone state is idle, then the call is ended. In this case, 
 				// the recordlistener ends and saves the record.

@@ -3,10 +3,10 @@ package com.call.record.activity;
 import com.call.record.audio.record.RecordListenerInterface;
 
 public class CallRecordStaticItems {
-
+	
 	private static boolean stateRunning = false;
 	private static RecordListenerInterface recordListener;
-	private static String lock = "";
+	private static boolean isIncomingCall;
 	
 	/**
 	 * This method returns if the service has been initialized
@@ -43,8 +43,22 @@ public class CallRecordStaticItems {
 		return recordListener;
 	}
 	
-	public static String getLock(){
-		return lock;
+	/**
+	 * This method returns if have been an incoming call.
+	 * 
+	 * @return isIncomingCall
+	 */
+	public static boolean isIncomingCall(){
+		return isIncomingCall;
+	}
+	
+	/**
+	 * Sets incomingCall value true if there is an incoming call. Else, it sets false
+	 * 
+	 * @param ic Incoming call or not
+	 */
+	public static void setIncomingCall(boolean ic){
+		isIncomingCall = ic;
 	}
 	
 	
