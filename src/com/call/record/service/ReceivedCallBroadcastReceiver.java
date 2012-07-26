@@ -20,27 +20,32 @@ public class ReceivedCallBroadcastReceiver extends BroadcastReceiver{
 	
 	private static final String PHONESTATE = "The phone state is ";
 	private static final String PHONENUMBER = "The incoming phone number is ";
+	private static final String DETECTING_INCOMING_CALL = "Detecting if the call is incoming or outgoing";
+	private static final String INCOMING_CALL_PROCESSING = "IncomingCall";
+	private static final String OUTGOING_CALL_PROCESSING = "OutgoingCall";
 	
-	@Override
-	public void onReceive(Context arg0, Intent arg1) {
+	private boolean isOutgoingCall(Bundle extras){
 		
-		if (!CallRecordStaticItems.isRunning())
-			return;
+		Log.d("METHOD---------->", DETECTING_INCOMING_CALL);
 		
-		/*This is the schema that the service would follow.
+		String phoneNumber = extras.getString(Intent.EXTRA_PHONE_NUMBER);
 		
-		if (isIncomingCall()){
-			doIncomingCall();
-		}else{
-			doOutComingCall();
-		}
+		return phoneNumber != null;
 		
-		 */
+	}
+	
+	private void doOutgoingCall(Bundle extras){
+		
+		Log.d("METHOD---------->", OUTGOING_CALL_PROCESSING);
+		
+	}
+	
+	private void doIncomingCall(Bundle extras){
 		
 		// Next is sample code to start and stop a callRecord with an incoming call.
-		// This code FAILS with and OUTCOMING call
+				// This code FAILS with and OUTCOMING call
 		
-		Bundle extras = arg1.getExtras(); //I don't really know what is the objective of this line.
+		Log.d("METHOD---------->", INCOMING_CALL_PROCESSING);
 		
 		if(extras != null){
 			
@@ -73,6 +78,25 @@ public class ReceivedCallBroadcastReceiver extends BroadcastReceiver{
 				
 			}
 		}
+	}
+	
+	@Override
+	public void onReceive(Context arg0, Intent arg1) {
+		
+		if (!CallRecordStaticItems.isRunning())
+			return;
+		
+		//This is the schema that the service would follow.
+		
+		Bundle extras = arg1.getExtras(); // We get the extras from intent. We'll use this
+									// extras to get phone call number, phone state...among others.
+		
+		if (isOutgoingCall(extras)){
+			doOutgoingCall(extras);
+		}else{
+			doIncomingCall(extras);
+		}
+		
 	}
 
 }
